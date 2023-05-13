@@ -65,14 +65,12 @@ const addBookHandler = (request, h) => {
 };
 
 const getAllBooksHandler = (request, h) => {
-    const booksResponse = books.map(obj => {
-        return {id: obj.id, name: obj.name, publisher: obj.publisher};
-    });
-
     return h.response({
         status: 'success',
         data: {
-            books: booksResponse,
+            books: books.map(obj => {
+                return {id: obj.id, name: obj.name, publisher: obj.publisher};
+            }),
         },
     }).code(200);
 }
