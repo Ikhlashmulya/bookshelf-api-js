@@ -73,7 +73,7 @@ const deleteById = (bookId) => {
         throw new ResponseError(404, "Buku gagal dihapus. Id tidak ditemukan");
     }
 
-    delete books[bookIndex];
+    books.splice(bookIndex, 1);
 }
 
 const validateCreateRequest = (payload) => {
