@@ -1,15 +1,28 @@
-const Hapi = require('@hapi/hapi');
-const routes = require('./routes/routes');
+import Hapi from '@hapi/hapi';
+import routes from './routes/routes.js';
 
-const init = async () => {
-    const server = Hapi.server({
-        port: 9000,
-        host: 'localhost',
-    });
+async function main() {
+  const server = Hapi.server({
+    port: 9000,
+    host: 'localhost',
+  });
 
-    server.route(routes);
+  server.route(routes);
 
-    await server.start();
-    console.log(`server running on ${server.info.uri}`);
-};
-init();
+  server.ext('onPreResponse', (request, h) => {
+    if (request.response.isBoom) {
+      return h
+        .response({
+          status: 'fail',
+          message: request.response.output.payload.message,
+        })
+        .code(request.response.output.statusCode);
+    }
+
+    return h.continue;
+  });
+
+  await server.start();
+  console.log(`server running on ${server.info.uri}`);
+}
+main();
