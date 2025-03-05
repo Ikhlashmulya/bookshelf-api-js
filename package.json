@@ -10,6 +10,14 @@
     "start-dev": "nodemon src/index.js",
     "eslint": "eslint ./"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ikhlashmulya/bookshelf-api-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ikhlashmulya/bookshelf-api-js/issues"
+  },
+  "homepage": "https://github.com/Ikhlashmulya/bookshelf-api-js#readme",
   "keywords": [],
   "author": "",
   "license": "ISC",
