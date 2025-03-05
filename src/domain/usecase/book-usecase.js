@@ -47,7 +47,6 @@ export class BookUsecase {
   }
 
   find(filter = {}) {
-    console.log(filter);
     const books = this._bookRepository.find(filter);
 
     return books.map((book) => new BookResponseDto(book));
