@@ -1,4 +1,4 @@
-import { BookController } from '../../application/controller/book-controller.js';
+import { BookController } from '../../adapter/controller/book-controller.js';
 import Hapi from '@hapi/hapi';
 
 export class HapiServer {

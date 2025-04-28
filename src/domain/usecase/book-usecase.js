@@ -5,7 +5,7 @@ import { CreateBookDto } from '../../application/dto/create-book-dto.js';
 import { UpdateBookDto } from '../../application/dto/update-book-dto.js';
 import { BookValidation } from '../../application/validation/book-validation.js';
 import { Book } from '../entity/book.js';
-import { BookRepository } from '../interface/book-repository.js';
+import { BookRepository } from '../repository/book-repository.js';
 
 export class BookUsecase {
   /** @type {BookRepository} */
